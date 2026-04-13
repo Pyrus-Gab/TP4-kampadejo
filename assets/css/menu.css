@@ -15,8 +15,15 @@
 /****** Base commune *******/
 
 /* Bouton du menu */
+
+.nav {
+    text-align: right;
+}
+
 .nav__control {
-    background-color: rgba(145, 0, 145, 0.2);
+    color: var(--color-text);
+    font-weight: 900;
+    background-color: transparent;
     border: none;
     padding: 10px;
     min-width: 40px;
@@ -30,8 +37,8 @@
 
 .nav__control:hover,
 .nav__control:active {
-    color: #fff;
-    background-color: darkmagenta;
+    color: var(--color-text);
+    background-color: var(--color-G);
 }
 
 .nav__control:focus {
@@ -47,20 +54,27 @@
      * de modifier l'apparence du outline par défaut des navigateurs.
      */
     outline-offset: -5px;
-    outline: darkmagenta auto 5px;
+    outline: var(--color-Y) solid 4px;
+    border-radius: .5rem;
 }
 
 
 .nav__control:before {
     display: inline-block;
-    content: "";
+    content: url(../images/ico-fermer.svg);
     width: 1em;
     height: 1em;
+    margin-right: 5px;
     /* compléter pour afficher l’icône X */
 }
 
 .nav--closed .nav__control:before {
     /* compléter pour afficher l’icône Hamburger */
+    display: inline-block;
+    content: url(../images/ico-menu.svg);
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
 }
 
 /* Liste du menu */
@@ -79,10 +93,11 @@
 
 /* Liens du menu */
 .nav__link {
-    background-color: rgba(145, 0, 145, 0.2);
+    background-color: transparent;
     display: block;
     padding: 5px 10px;
     width: 100%;
+    text-align: left;
 }
 
 .nav__link:link,
@@ -92,19 +107,29 @@
 }
 
 .nav__link:hover {
-    color: #fff;
-    background-color: darkmagenta;
+    color: var(--color-Y);
+    background-color: transparent;
 }
 
 .nav__link:active {
-    color: #fff;
-    background-color: magenta;
+    color: var(--color-text);
+    background-color: transparent;
 }
 
 
 .nav__link:focus {
     outline-offset: -5px;
-    outline: darkmagenta auto 5px;
+    outline: transparent solid 5px;
+    border-left: 5px solid var(--color-Y);
+}
+
+@media (min-width: 40rem) {
+    .nav__link:focus {
+    outline-offset: -5px;
+    outline: transparent solid 5px;
+    border-left: none;
+    border-bottom: 5px solid var(--color-Y);
+    }
 }
 
 /** Une classe nav__link--active
